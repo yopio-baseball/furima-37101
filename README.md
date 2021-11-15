@@ -74,7 +74,7 @@ has_one :address
 
 | Column | Type   | Options      |
 | ------ | -------| -------------|
-| post_code   | integer  |  string  | null:false   |
+| post_code   | string  |  string  | null:false   |
 | region_id | integer     | null: false      |
 | address_city    | string   | null:  false |
 | address_street  | string   | null: false  |
