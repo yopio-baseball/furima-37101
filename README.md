@@ -54,7 +54,7 @@ has_many :orders
 | region_id | integer     | null: false      |
 | shipping_date_id  |  integer  | null: false  |
 | price    |  integer |  null: false |
-| user_id  | references   |null false, foreign: key |
+| user  | references   |null false, foreign: key |
 has_one :order
 belongs_to :user
 
@@ -62,8 +62,8 @@ belongs_to :user
 ## orders テーブル
 | Column | Type   | Options     |
 | ------ | ------ | ----------- | 
-| user_id |references  |  null: false, foreign_key  |
-| item_id |references  |  null: false, foreign_key  |
+| user |references  |  null: false, foreign_key  |
+| item |references  |  null: false, foreign_key  |
 
 belongs_to :user
 belongs_to :item
@@ -80,7 +80,7 @@ has_one :address
 | address_street  | string   | null: false  |
 | address_building |  string |              |
 | phone_number    | string   | null: false  |
-| order_id  | references  | null: false  foreign: key |
+| order | references  | null: false  foreign: key |
 
 - belongs_to :order
 
