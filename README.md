@@ -48,7 +48,7 @@ has_many :orders
 | ------- | -------| -------------|
 |  name   |  string | null: false |
 | product_description  |  text   |  null: false  |
-| category_id |  references  |  null: false  |
+| category_id |  integer |  null: false  |
 | state_id  | integer  |  null: false |
 | pay_for_shipping_id | integer | null: false |
 | region_id | integer     | null: false      |
