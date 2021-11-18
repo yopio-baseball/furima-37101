@@ -11,6 +11,7 @@ before_action :authenticate_user!, only: [:new]
 
   def create
     Item.create(item_params)
+    @articles = Article.order("created_at DESC")
   end
 
   private
