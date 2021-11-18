@@ -5,7 +5,8 @@ class Item < ApplicationRecord
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category, :state, :pay_for_shipping, :region, :shipping_date
-
+   
+   validates :image, presence: true
    validates :name, presence: true
    validates :product_description, presence: true
    validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
@@ -13,6 +14,8 @@ class Item < ApplicationRecord
    validates :pay_for_shipping_id, numericality: { other_than: 1, message: "can't be blank" }
    validates :region_id, numericality: { other_than: 1, message: "can't be blank" }
    validates :shipping_date_id, numericality: { other_than: 1, message: "can't be blank" }
+   validates :price, numericality:{ with: /\A[0-9]+\z/, message: 'should be half-width numbers' }
    validates :price, presence: true
    validates :user , presence: true
+   
 end
