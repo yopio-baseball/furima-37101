@@ -22,7 +22,7 @@ class Region < ActiveHash::Base
   has_many :items
 
 
-# app/models/address.rb
+# app/models/address.rb addressのところで使うため残している
 
 # class Address < ApplicationRecord
 #   extend ActiveHash::Associations::ActiveRecordExtensions
