@@ -11,6 +11,10 @@ RSpec.describe Item, type: :model do
       it '全ての値が正しく入力されていれば出品できること' do
         expect(@item).to be_valid
       end
+      it 'ログイン状態のユーザーのみ、商品出品ページへ遷移できること' do
+        @item = FactoryBot.create(:user)
+        expect(@item).to be_valid
+      end
     end
     context '商品情報の入力がうまく行かない時' do
       it 'imageが空だと出品できない' do
@@ -59,12 +63,17 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
-      it '売価格は、¥300~¥9,999,999の間のみ保存可能であること' do
+      it '売価格は、¥300未満だと保存できない' do
         @item.price = '100'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
-
+      
+      it '売価格は、¥9,999,999以上だと保存できない' do
+        @item.price = '10000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price Out of setting range")
+      end
 
       it 'priceが全角数字だと出品できない' do
         @item.price = "２０００"
