@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  # has_many :orders
+  has_many :orders
 
   validates :nickname, presence:true
   validates :day_of_birth, presence:true 
