@@ -1,7 +1,6 @@
 class OrderAddress
-  attr_accessor :token
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :post_code, :region_id, :address_city,  :address_street, :address_building, :phone_number, :order_id
+  attr_accessor :user_id, :item_id, :post_code, :region_id, :address_city,  :address_street, :address_building, :phone_number, :token
 
   # ここにバリデーションの処理を書く
   with_options presence: true do

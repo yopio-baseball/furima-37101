@@ -28,7 +28,7 @@ def index
   end
 
   def edit
-    if current_user == @item.user
+    unless  @item.order == nil
       redirect_to root_path
     end
   end
