@@ -10,17 +10,18 @@ class Item < ApplicationRecord
   belongs_to :region
   belongs_to :shipping_date
    
-   validates :image, presence: true
-   validates :name, presence: true
-   validates :product_description, presence: true
-   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-   validates :state_id, numericality: { other_than: 1, message: "can't be blank" }
-   validates :pay_for_shipping_id, numericality: { other_than: 1, message: "can't be blank" }
-   validates :region_id, numericality: { other_than: 1, message: "can't be blank" }
-   validates :shipping_date_id, numericality: { other_than: 1, message: "can't be blank" }
-   validates :price, numericality:{ with: /\A[0-9]+\z/, message: 'should be half-width numbers' }
-   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: "Half-width number" }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range" }
-   
+  validates :image, presence: true
+  validates :name, presence: true
+  validates :product_description, presence: true
+  validates :category_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :state_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :pay_for_shipping_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :region_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :shipping_date_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :price, presence: true
+  validates :price, numericality:{ with: /\A[0-9]+\z/, message: '半角数値で入力してください' }
+  validates :price, format: { with: /\A[0-9]+\z/, message: "半角数値で入力してください" }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "の金額入力は設定範囲内で収めてください" }
    
    
 end

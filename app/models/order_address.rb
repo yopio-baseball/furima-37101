@@ -6,11 +6,11 @@ class OrderAddress
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :region_id, numericality: {other_than: 1, message: "can't be blank"}
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン(-)を含めてください"}
+    validates :region_id, numericality: {other_than: 1, message: "を選択してください"}
     validates :address_city
     validates :address_street
-    validates :phone_number, format: {with: /\A\d{10,11}\z/}
+    validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "は半角数字、10桁11桁のみです"}
     validates :token
   end
   
